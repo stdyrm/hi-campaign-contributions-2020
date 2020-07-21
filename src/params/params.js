@@ -1,17 +1,13 @@
 const PARAMS = {
-	APP: {},
-	PAGE: {},
-	CHART: {
-		id: "",
+  APP: {},
+  PAGE: {},
+  CHART: {
+    id: "",
     title: "HI Campaign Contributions 2020",
-    subtitle:
-			"Data from the State of Hawaii Campaign Spending Commission",
-		root: "candidate",
-		children: [
-			"contributorType",
-			"contributor"
-		],
-		value: "amount",
+    subtitle: "Data from the State of Hawaii Campaign Spending Commission",
+    root: "candidate",
+    children: ["contributorType", "contributor"],
+    value: "amount",
     x: {
       id: "",
       dataType: "nominal",
@@ -50,18 +46,18 @@ const PARAMS = {
           description: "",
         },
       ],
-		},
-		dimensions: {
-			width: window.innerWidth * .95,
-			height: window.innerHeight * .7,
-			margin: {
-				top: 20,
-				bottom: 130,
-				left: 40,
-				right: 40,
-			}
-		}
-	},
+    },
+    dimensions: {
+      width: window.innerWidth * 0.95,
+      height: window.innerHeight * 0.7,
+      margin: {
+        top: 20,
+        bottom: 130,
+        left: 40,
+        right: 40,
+      },
+    },
+  },
 };
 
 export { PARAMS };
