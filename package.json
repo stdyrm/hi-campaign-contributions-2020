@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
 	"main": "index.js",
-	"proxy": "http://localhost:5000",
   "scripts": {
     "start": "webpack-dev-server --mode development --hot --open",
     "build": "webpack --mode production",
@@ -30,6 +29,7 @@
     "eslint-plugin-react": "^7.20.3",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
+    "http-proxy-middleware": "^1.0.5",
     "mongoose": "^5.9.25",
     "prettier": "^2.0.5",
     "sass-loader": "^9.0.2",

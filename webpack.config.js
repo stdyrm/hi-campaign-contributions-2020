@@ -9,6 +9,14 @@ module.exports = {
 		path: path.join(__dirname, "/dist"),
 		filename: "bundle.js"
 	},
+	devServer: {
+		proxy: {
+			"/api": {
+				target: "http://localhost:5000",
+				changeOrigin: true
+			}
+		}
+	},
 	module: {
 		rules: [
 			{

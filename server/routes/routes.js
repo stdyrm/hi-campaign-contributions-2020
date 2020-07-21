@@ -3,6 +3,7 @@ const jsonData = require("../campaign-contributions.json");
 
 router.get("/api/contributions", async (req, res) => {
 	console.log("Retrieving data ...");
+	res.header("Access-Control-Allow-Origin", "http://localhost:8080")
 
 	try {
 		const dataTable = await jsonData.filter(d => d.electionPeriod.endsWith("2020"))

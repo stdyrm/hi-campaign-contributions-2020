@@ -24,8 +24,12 @@ const App = () => {
   const getAPI = async () => {
     console.log("Retrieving 2020 contributions ...");
     await axios
-      .get(CONTRIBUTIONS_URL)
-      .then((res) => {
+			.get(CONTRIBUTIONS_URL, {
+				headers: {
+					accepts: "application/json"
+				}
+			})
+			.then((res) => {
         setData(res.data);
       })
       .catch((err) => console.log(err));
