@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const jsonData = require("../campaign-contributions.json");
 
-router.get("/contributions", async (req, res) => {
+router.get("/api/contributions", async (req, res) => {
 	console.log("Retrieving data ...");
 
 	try {

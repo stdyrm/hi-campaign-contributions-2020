@@ -14,6 +14,8 @@ const { APP, PAGE, CHART } = PARAMS;
 // styles
 import "./app.scss";
 
+const CONTRIBUTIONS_URL = "/api/contributions";
+
 const App = () => {
   const [selectedOffice, setSelectedOffice] = useState("Honolulu Mayor");
   const [data, setData] = useState(null);
@@ -22,7 +24,7 @@ const App = () => {
   const getAPI = async () => {
     console.log("Retrieving 2020 contributions ...");
     await axios
-      .get(`http://localhost:5000/contributions`)
+      .get(CONTRIBUTIONS_URL)
       .then((res) => {
         setData(res.data);
       })

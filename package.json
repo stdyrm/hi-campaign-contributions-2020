@@ -2,7 +2,8 @@
   "name": "hi-campaign-contributions-2020",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+	"main": "index.js",
+	"proxy": "http://localhost:5000",
   "scripts": {
     "start": "webpack-dev-server --mode development --hot --open",
     "build": "webpack --mode production",
