@@ -99,23 +99,24 @@ const Chart = ({ data, chartParams, selectedOffice }) => {
       .attr("width", (d) => d.x1 - d.x0)
       .attr("height", (d) => d.y1 - d.y0);
 
-    rect.on("mouseover", (d) => {
-      const halfpage = width / 2;
-      tooltip
-        .style("opacity", 0.9)
-        .html(
-          `${d.parent.data.name}<hr />
-					${d.data.name}: $${Math.round(d.data.value).toLocaleString()}<br />
-					Total: $${Math.round(d.parent.value).toLocaleString()}`
-        )
-        .style(
-          "left",
-          d3.event.pageX < halfpage
-            ? `${d3.event.pageX + 10}px`
-            : `${d3.event.pageX - 125}px`
-        )
-        .style("top", `${d3.event.pageY + 24}px`);
-    });
+    rect.on("mouseover", d => d)
+			.on("mousemove", d => {
+				const halfpage = width / 2;
+				tooltip
+					.style("opacity", 0.9)
+					.html(
+						`${d.parent.data.name}<hr />
+						${d.data.name}: $${Math.round(d.data.value).toLocaleString()}<br />
+						Total: $${Math.round(d.parent.value).toLocaleString()}`
+					)
+					.style(
+						"left",
+						d => d3.event.pageX < halfpage
+							? `${d3.event.pageX + 10}px`
+							: `${d3.event.pageX - 125}px`
+					)
+					.style("top", d => `${d3.event.pageY + 24}px`);
+			})
 
     rect.on("mouseout", (d) => {
       tooltip
@@ -132,7 +133,7 @@ const Chart = ({ data, chartParams, selectedOffice }) => {
       .data(colorScale.domain())
       .join("g")
       .attr("class", "legend-label")
-      .attr("transform", () => `translate(${width / 2}px,${height - 30}px)`);
+      .attr("transform", (d) => `translate(${width / 2}px,${height - 30}px)`);
 
     legend
       .append("rect")

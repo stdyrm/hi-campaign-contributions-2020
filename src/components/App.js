@@ -18,8 +18,9 @@ const CONTRIBUTIONS_URL = "/api/contributions";
 
 const App = () => {
   const [selectedOffice, setSelectedOffice] = useState("Honolulu Mayor");
-  const [data, setData] = useState(null);
-  const [chartParams, setChartParams] = useState(CHART);
+	const [data, setData] = useState(null);
+	const [filtered, setFiltered] = useState(null);
+	const [chartParams, setChartParams] = useState(CHART);
 
   const getAPI = async () => {
     console.log("Retrieving 2020 contributions ...");
@@ -33,11 +34,16 @@ const App = () => {
         setData(res.data);
       })
       .catch((err) => console.log(err));
-  };
+	};
 
   useEffect(() => {
     getAPI();
-  }, []);
+	}, []);
+	
+	useEffect(() => {
+		if (!data) return;
+		setFiltered(data.filter(d => d.office === selectedOffice));
+	}, [data, selectedOffice]); 
 
   return (
     <div className="app">
@@ -50,9 +56,9 @@ const App = () => {
           setSelectedOffice={setSelectedOffice}
         />
       </span>
-      {data && (
+      {filtered && (
         <Chart
-          data={data.filter((d) => d.office === selectedOffice)}
+					data={filtered}
           chartParams={chartParams}
           selectedOffice={selectedOffice}
         />
