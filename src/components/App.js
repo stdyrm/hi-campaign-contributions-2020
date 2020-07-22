@@ -58,7 +58,8 @@ const App = () => {
           chartParams={chartParams}
           selectedOffice={selectedOffice}
         />
-      )}
+			)}
+			<h4>Questions or corrections? Please email <a href="mailto:contact@hawaiiviz.com">contact@hawaiiviz.com</a></h4>
     </div>
   );
 };
