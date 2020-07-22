@@ -14,7 +14,7 @@ const { APP, PAGE, CHART } = PARAMS;
 // styles
 import "./app.scss";
 
-const CONTRIBUTIONS_URL = "/api/contributions";
+const CONTRIBUTIONS_URL = "https://hawaiiviz.com/api/contributions";
 
 const App = () => {
   const [selectedOffice, setSelectedOffice] = useState("Honolulu Mayor");
@@ -25,11 +25,7 @@ const App = () => {
   const getAPI = async () => {
     console.log("Retrieving 2020 contributions ...");
     await axios
-			.get(CONTRIBUTIONS_URL, {
-				headers: {
-					accepts: "application/json"
-				}
-			})
+			.get(CONTRIBUTIONS_URL)
 			.then((res) => {
         setData(res.data);
       })
@@ -47,7 +43,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <span className="app-toolbar">
+			<span className="app-toolbar">
         <h1>Hawaii 2020 Election Campaign Contributions</h1>
         <SelectOffice
           data={data}

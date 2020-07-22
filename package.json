@@ -2,10 +2,10 @@
   "name": "hi-campaign-contributions-2020",
   "version": "1.0.0",
   "description": "",
-	"main": "index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --hot --open",
-    "build": "webpack --mode production",
+    "start": "webpack-dev-server --hot --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
     "format": "prettier --write \"src/**/*.js\""
   },
   "keywords": [],
@@ -31,13 +31,15 @@
     "html-webpack-plugin": "^4.3.0",
     "http-proxy-middleware": "^1.0.5",
     "mongoose": "^5.9.25",
+    "pm2": "^4.4.0",
     "prettier": "^2.0.5",
     "sass-loader": "^9.0.2",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
-    "webpack-manifest-plugin": "^2.2.0"
+    "webpack-manifest-plugin": "^2.2.0",
+    "webpack-merge": "^5.0.9"
   },
   "dependencies": {
     "axios": "^0.19.2",
