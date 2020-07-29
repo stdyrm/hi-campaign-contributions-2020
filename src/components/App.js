@@ -44,7 +44,10 @@ const App = () => {
   return (
     <div className="app">
 			<span className="app-toolbar">
-        <h1>Hawaii 2020 Election Campaign Contributions</h1>
+				<div>
+					<h1>Hawaii 2020 Election Campaign Contributions</h1>
+					<h4>State of Hawaii Campaign Spending Commission data as of 6/30/20</h4>
+				</div>
         <SelectOffice
           data={data}
           setData={setData}
